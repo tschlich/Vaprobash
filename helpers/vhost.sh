@@ -169,7 +169,7 @@ if [ ! -d $DocumentRoot ]; then
     mkdir -p $DocumentRoot
     #chown USER:USER $DocumentRoot #POSSIBLE IMPLEMENTATION, new flag -u ?
 fi
-
+echo "$DocumentRoot/$ServerName.conf";
 if [ -f "$DocumentRoot/$ServerName.conf" ]; then
     echo 'vHost already exists. Aborting'
     show_usage

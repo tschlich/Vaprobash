@@ -171,7 +171,7 @@ if [ ! -d $DocumentRoot ]; then
 fi
 
 if [ -f "/etc/apache2/sites-enabled/$ServerName.conf" ]; then
-    echo "vHost $ServerName already enabled. Aborting"
+    echo "vHost ${ServerName} already enabled. Aborting"
 else
     create_vhost > /etc/apache2/sites-available/${ServerName}.conf
 

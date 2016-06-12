@@ -169,7 +169,7 @@ if [ ! -d $DocumentRoot ]; then
     mkdir -p $DocumentRoot
     #chown USER:USER $DocumentRoot #POSSIBLE IMPLEMENTATION, new flag -u ?
 fi
-echo "/etc/apache2/sites-enabled/$ServerName.conf";
+
 if [ -f "/etc/apache2/sites-enabled/$ServerName.conf" ]; then
     echo 'vHost already enabled. Aborting'
     show_usage

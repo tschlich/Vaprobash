@@ -172,7 +172,6 @@ fi
 
 if [ -f "/etc/apache2/sites-enabled/$ServerName.conf" ]; then
     echo 'vHost already enabled. Aborting'
-    show_usage
 else
     create_vhost > /etc/apache2/sites-available/${ServerName}.conf
 

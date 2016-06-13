@@ -170,8 +170,8 @@ if [ ! -d $DocumentRoot ]; then
     #chown USER:USER $DocumentRoot #POSSIBLE IMPLEMENTATION, new flag -u ?
 fi
 
-if [ -f "$DocumentRoot/$ServerName.conf" ]; then
-    echo 'vHost already exists. Aborting'
+if [ -f "/etc/apache2/sites-enabled/$ServerName.conf" ]; then
+    echo 'vHost already enabled. Aborting'
     show_usage
 else
     create_vhost > /etc/apache2/sites-available/${ServerName}.conf

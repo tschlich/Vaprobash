@@ -138,6 +138,44 @@ Change your IP address as needed. The default IP address is now `192.168.19.71`
 
 ![sequel pro vaprobash](http://fideloper.github.io/Vaprobash/img/sequel_pro.png)
 
+## Generate new web project based on this repo
+
+### Download and edit the Vagrantfile as needed.
+### set up one or more vhosts
+i use a local script and add it to the Vagrantfile:
+
+Vagrantfile
+
+	...
+	
+	####
+	# Local Scripts
+	# Any local scripts you may want to run post-provisioning.
+	# Add these to the same directory as the Vagrantfile.
+	##########
+	# config.vm.provision "shell", path: "./local-script.sh"
+	config.vm.provision "shell", path: "./scripts/install.sh"
+
+scripts/install.sh
+
+    #!/usr/bin/env bash
+
+	# Run this as sudo!
+	# Do not run this outside the vaprobash vm. Cconnect via ssh first!
+
+	SERVER_NAME="192.168.19.71.xip.io"
+	PROJECT_ROOT="/vagrant/www"
+
+	echo "Creating vhosts ..."
+	vhost -d $PROJECT_ROOT/foo/htdocs -s foo.$SERVER_NAME -a www.foo.$SERVER_NAME
+	vhost -d $PROJECT_ROOT/bar/htdocs -s bar.$SERVER_NAME -a www.bar.$SERVER_NAME
+
+### go on building your project
+
+A simple example you can find [here](https://github.com/tschlich/playground/blob/master/scripts/install.sh).
+
+You can create a brandnew project repository containing the Vagrantfile, the install script and whatever your project needs.
+
 ## Contribute!
 
 Do it! Any new install or improvement on existing ones are welcome! Please see the [contributing doc](/contributing.md).

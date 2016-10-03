@@ -16,7 +16,7 @@ upload_max_filesize=10M
 post_max_size=10M
 for key in always_populate_raw_post_data xdebug.max_nesting_level max_input_vars max_execution_time upload_max_filesize post_max_size 
 do
-  sudo sed -i "s/^\($key\).*/\1 $(eval echo = \${$key})/" /etc/php5/apache2/php.ini
+  sudo sed -i "s/^\($key\).*/\1 $(eval echo = \${$key})/" /etc/php5/fpm/php.ini
 done
 
 # restarting apache

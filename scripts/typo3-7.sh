@@ -3,7 +3,7 @@
 # Download TYPO3 Source and unpack it
 echo ">>> downloading typo3 sources"
 cd /opt/
-wget get.typo3.org/7 --content-disposition
+wget get.typo3.org/7 --content-disposition --quiet
 tar -xzf typo3_src-7.6.*
 
 # php.ini config for TYPO3 7
